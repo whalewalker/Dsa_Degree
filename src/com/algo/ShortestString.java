@@ -10,7 +10,6 @@ public class ShortestString {
             else
                 count--;
         }
-
         return Math.abs(count);
     }
 

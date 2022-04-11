@@ -27,40 +27,38 @@ public class WordFormation {
      */
 
 
-
     /**
-     *
      * @ Approach : Brute Force
      */
-    public static int solution(String [] words, String letters){
-        //Todo: Get All occurrence in int array
+    public static int solution(String[] words, String letters) {
+
         int[] letterArr = new int[26];
-        for (int i = 0; i < letters.length(); i++){
+        for (int i = 0; i < letters.length(); i++) {
             letterArr[letters.charAt(i) - 'a']++;
         }
-        //Todo: initialize longest length
+
         int longestLen = 0;
-        //Todo: Iterate through word in words list
+
         for (String word : words) {
-            //Todo: initialize match
+
             boolean match = true;
-            //Todo: Get All occurrence of each word in int array
+
             int[] wordArr = new int[26];
-            for (int i = 0; i < word.length(); i++){
+            for (int i = 0; i < word.length(); i++) {
                 wordArr[word.charAt(i) - 'a']++;
             }
-            //Todo: Check if each word can be found in  letters
-            for (int index = 0; index < 26; index++){
-                if (wordArr[index] > letterArr[index]){
+
+            for (int index = 0; index < 26; index++) {
+                if (wordArr[index] > letterArr[index]) {
                     match = false;
                     break;
                 }
             }
-            //Todo: If true, get the length
-            if (match){
+
+            if (match) {
                 longestLen = Math.max(longestLen, word.length());
             }
-            //Todo: if not Move to the next word
+
         }
         return longestLen;
 
