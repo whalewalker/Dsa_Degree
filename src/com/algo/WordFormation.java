@@ -66,6 +66,40 @@ public class WordFormation {
     }
 
 
+    /**
+     * @ Approach : Brute Force
+     */
+    public int solve(String[] words, String letters) {
+        int[] lengths = new int[words.length];
+        int count = 0;
+        int index = 0;
+        for (String word : words) {
+            for (int j = 0; j < word.length(); j++) {
+                boolean match = false;
+                for (int i = 0; i < letters.length(); i++) {
+                    System.out.println(word.charAt(j) + " -> " + letters.charAt(i));
+                    if (word.charAt(j) == letters.charAt(i)) {
+                        match = true;
+                        break;
+                    }
+                }
+                if (match) {
+                    count++;
+                } else {
+                    count = 0;
+                    break;
+                }
+            }
+            if (count == word.length()) {
+                lengths[index] = word.length();
+                count = 0;
+            }
+            index++;
+        }
+        return Arrays.stream(lengths).max().getAsInt();
+    }
+
+
     public static void main(String[] args) {
         System.out.println(solution(new String[]{"the", "word", "love", "scott", "finder", "dictionary"}, "ffanierdow"));
     }
