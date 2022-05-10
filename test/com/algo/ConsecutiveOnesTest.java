@@ -22,9 +22,23 @@ class ConsecutiveOnesTest {
     }
 
     @Test
-    void returnTrueWhen_121_AsListIsCheckedToHaveAConsecutiveOnes(){
+    void returnFalseWhen_121_AsListIsCheckedToHaveAConsecutiveOnes(){
         int[] nums = {1, 2, 1};
         boolean isConsecutiveOnes = consecutiveOnes.solution(nums);
         assertFalse(isConsecutiveOnes);
+    }
+
+    @Test
+    void returnTrueWhen_1_AsListIsCheckedToHaveAConsecutiveOnes(){
+        int[] nums = {1};
+        boolean isConsecutiveOnes = consecutiveOnes.solution(nums);
+        assertTrue(isConsecutiveOnes);
+    }
+
+    @Test
+    void returnTrueWhen_01_AsListIsCheckedToHaveAConsecutiveOnes(){
+        int[] nums = {0, 1};
+        boolean isConsecutiveOnes = consecutiveOnes.solution(nums);
+        assertTrue(isConsecutiveOnes);
     }
 }
