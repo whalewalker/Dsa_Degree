@@ -18,7 +18,7 @@ public class HitCounter {
     public int count(int timestamp) {
 
         for (int ignored : timestamps) {
-            if (!timestamps.isEmpty() && timestamps.peek() < timestamp - 60) {
+            while (!timestamps.isEmpty() && timestamps.peek() < timestamp - 60) {
                 timestamps.poll();
             }
         }
