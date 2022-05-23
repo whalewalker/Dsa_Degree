@@ -16,7 +16,7 @@ public class UniqueFraction {
             uniqueFraction.add(new int[]{numirator / divisor, denominator / divisor});
         }
 
-        int [][] result = new int[uniqueFraction.size()][uniqueFraction.size()];
+        int [][] result = new int[uniqueFraction.size()][2];
         result = uniqueFraction.toArray(result);
         return result;
     }
