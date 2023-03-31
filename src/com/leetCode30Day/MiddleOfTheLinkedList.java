@@ -1,5 +1,9 @@
 package com.leetCode30Day;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class MiddleOfTheLinkedList {
     public static class ListNode {
         int val;
@@ -54,6 +58,20 @@ public class MiddleOfTheLinkedList {
        return slow;
     }
 
+    public static ListNode middleNode3(ListNode head){
+        ListNode fast, slow;
+        fast = slow = head;
+        while (fast != null){
+            fast = fast.next;
+            if (fast != null){
+                fast = fast.next;
+                slow = slow.next;
+            }
+        }
+
+        return slow;
+    }
+
     public static void main(String[] args) {
         ListNode listNode = new ListNode(1);
         ListNode list = listNode;
@@ -64,7 +82,9 @@ public class MiddleOfTheLinkedList {
         list.next = new ListNode(4);
         list = list.next;
         list.next = new ListNode(5);
+        list = list.next;
+        list.next = new ListNode(6);
 
-        System.out.println( middleNode2(listNode));
+        System.out.println( middleNode3(listNode).val);
     }
 }

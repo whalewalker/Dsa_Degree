@@ -24,31 +24,15 @@ public class ValidateBST {
     }
 
     public static boolean isValidBST(TreeNode root) {
-        if (root == null) return false;
-        if (root.left == null && root.right == null) return true;
-        boolean isValidBST = false;
+        return validate(root, null, null);
+    }
 
-        Deque<TreeNode> deque = new ArrayDeque<>();
-        deque.push(root);
-
-        while (!deque.isEmpty()) {
-            TreeNode currNode = deque.removeFirst();
-            TreeNode leftNode = currNode.left;
-            TreeNode rightNode = currNode.right;
-
-            if (currNode.val > leftNode.val && currNode.val < rightNode.val) {
-                isValidBST = true;
-
-                if (leftNode.left != null && leftNode.right != null) {
-                    deque.addLast(leftNode);
-                }
-
-                if (rightNode.left != null && rightNode.right != null) {
-                    deque.addLast(rightNode);
-                }
-            }
+    public static boolean validate(TreeNode root, Integer low, Integer high){
+        if (root == null) return true;
+        if ((low != null && root.val <= low) || (high != null && root.val >= high)){
+            return false;
         }
-        return isValidBST;
+        return validate(root.right, root.val, high) && validate(root.left, low, root.val);
     }
 
     public static void main(String[] args) {

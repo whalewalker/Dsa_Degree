@@ -1,7 +1,5 @@
 package com.leetCode30Day;
 
-import com.leetCode30Day.BinaryTreeLevelOrderTraversal.TreeNode;
-
 import java.util.*;
 
 public class BinaryTreeLevelOrderTraversal {
@@ -33,10 +31,10 @@ public class BinaryTreeLevelOrderTraversal {
         deque.push(root);
 
         while (!deque.isEmpty()){
-            int SIZE = deque.size();
+            int DEQUE_SIZE = deque.size();
             List<Integer> path = new ArrayList<>();
 
-            for (int i = 0; i < SIZE; i++){
+            for (int i = 0; i < DEQUE_SIZE; i++){
                 TreeNode currNode = deque.removeFirst();
                 path.add(currNode.val);
 

@@ -24,8 +24,19 @@ public class IsSubsequence {
         return true;
     }
 
+    public static boolean isSubsequence2(String s, String t) {
+        if(!(s.trim().length() > 0 && t.trim().length() > 0)) return false;
+        int count = 0;
+        for(int i = 0; i < t.length(); i++){
+            if(s.charAt(count) == t.charAt(i)){
+                ++count;
+            }
+        }
+        return count == s.length();
+    }
+
     public static void main(String[] args) {
-//        System.out.println(isSubsequence("axc", "ahbgdc"));
-        System.out.println(isSubsequence("aaaaaa", "bbaaaa"));
+        System.out.println(isSubsequence("abe", "acdbf"));
+//        System.out.println(isSubsequence2("", "ahbgdc"));
     }
 }
