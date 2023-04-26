@@ -1,4 +1,4 @@
-package com.ds.non_linear.tree;
+package com.ds.non_linear.none;
 
 public class Node<T> {
     private T value;
