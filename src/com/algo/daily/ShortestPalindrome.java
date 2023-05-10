@@ -4,7 +4,7 @@ public class ShortestPalindrome {
     public ShortestPalindrome() {
     }
 
-    public static String shortestPalindromeOld(String str){
+    public static String shortestPalindromeOlder(String str){
         if(isPalindrome(str))
             return str;
         else {
@@ -26,13 +26,27 @@ public class ShortestPalindrome {
         }
     }
 
-    public static String shortestPalindrome(String s) {
+    public static String shortestPalindromeOld(String s) {
         if (isPalindrome(s)) {
             return s;
         }
         String suffix = s.substring(1);
         String prefix = new StringBuilder(suffix).reverse().toString();
         return prefix + s;
+    }
+
+    public static String shortestPalindrome(String s) {
+        if (isPalindrome(s)) {
+            return s;
+        }
+        StringBuilder prefix = new StringBuilder();
+        for(int i = s.length() - 1; i >= 0; i--){
+            prefix.append(s.charAt(i));
+            if (isPalindrome(prefix + s)){
+                return prefix + s;
+            }
+        }
+        return new StringBuilder(s).reverse() + s;
     }
 
 
